@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { cn, db } from "@/lib";
+import { cn } from "@/lib";
 import { useProModal } from "@/hooks/use-pro-modal";
 import axios from "axios";
 import toast from "react-hot-toast";

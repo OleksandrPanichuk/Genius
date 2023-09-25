@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate"
+    "postinstall": "npx prisma generate"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.1",
@@ -23,7 +23,7 @@
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.16",
     "axios": "^1.5.0",
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "crisp-sdk-web": "^1.0.21",
@@ -52,7 +52,7 @@
     "zustand": "^4.4.1"
   },
   "devDependencies": {
-    "@types/bcrypt": "^5.0.0",
+    "@types/bcryptjs": "^2.4.4",
     "encoding": "^0.1.13"
   }
 }

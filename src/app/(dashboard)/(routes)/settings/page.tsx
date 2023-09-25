@@ -1,11 +1,19 @@
+"use client"
 import { Settings } from "lucide-react";
 
 import { Heading } from "@/components/ui";
 import { SubscriptionButton } from "@/components/subscription-button";
 import { checkSubscription } from "@/lib";
+import { useEffect, useState } from "react";
 
-const SettingsPage = async () => {
-  const isPro = await checkSubscription();
+const SettingsPage = () => {
+  const [isPro, setIsPro] = useState(false)
+
+  useEffect(() => {
+    checkSubscription().then(isSubscribed => {
+      setIsPro(isSubscribed)
+    })
+  }, [])
 
   return (
     <div>
