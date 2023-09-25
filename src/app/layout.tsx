@@ -3,7 +3,7 @@ import { Provider } from '@/components/providers/provider'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { CrispProvider } from '@/components/providers/crisp-provider'
+// import { CrispProvider } from '@/components/providers/crisp-provider'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -21,7 +21,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <CrispProvider />
+      {/* <CrispProvider /> */}
       <body className={inter.className}>
         <Provider>
           {children}
