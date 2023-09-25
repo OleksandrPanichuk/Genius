@@ -23,7 +23,8 @@ export const tools = [
     label: 'Text To Speech',
     icon: Bi.BiMicrophone,
     href: "/spikify",
-    color: 'text-sky-500'
+    color: 'text-sky-500',
+    bgColor: 'bg-sky-500/10'
   },
   {
     label: 'Image Generation',

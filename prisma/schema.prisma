@@ -22,7 +22,6 @@ model User {
   count          Int       @default(0)
 
   accounts Account[]
-  messages Message[]
 }
 
 model Account {
@@ -56,25 +55,3 @@ model UserSubscription {
   stripeCurrentPeriodEnd DateTime? @map(name: "stripe_current_period_end")
 }
 
-enum Role {
-  user
-  system
-}
-
-enum MessageType {
-  conversation
-  code
-}
-
-model Message {
-  id        String   @id @default(uuid()) @db.Uuid
-  role      Role
-  content   String   @db.Text
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  type MessageType
-
-  userId String @db.Uuid
-  user   User   @relation(fields: [userId], references: [id])
-}

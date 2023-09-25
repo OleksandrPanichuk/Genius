@@ -1,3 +1,4 @@
+"use server"
 import { db } from "@/lib";
 import { getServerSession } from "next-auth";
 

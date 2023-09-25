@@ -8,18 +8,15 @@ import { cn } from "@/lib";
 import { routes } from "./sidebar.data";
 import { usePathname } from "next/navigation";
 import { FreeCounter } from "../free-counter";
-import { User } from "next-auth";
 
 const poppins = Montserrat({ weight: '600', subsets: ['latin'] });
 
 export const Sidebar = ({
   apiLimitCount = 0,
   isPro = false,
-  user = null,
 }: {
   apiLimitCount: number;
   isPro: boolean;
-  user: User | null
 }) => {
   const pathname = usePathname()
   return <aside className="space-y-4 py-4 flex flex-col h-full bg-[#111827] text-white">
@@ -36,10 +33,10 @@ export const Sidebar = ({
         {routes.map((route) => (
           <Link
             key={route.href}
-            href={route.href === '/dashboard' ? route.href : `/${user?.id}/${route.href}`}
+            href={route.href}
             className={cn(
               "text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
-               pathname.includes(route.href) ? "text-white bg-white/10" : "text-zinc-400",
+               pathname === route.href ? "text-white bg-white/10" : "text-zinc-400",
             )}
           >
             <div className="flex items-center flex-1">

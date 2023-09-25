@@ -58,26 +58,6 @@ export async function POST(
       }
     );
 
-
-
-    await db.message.create({
-      data: {
-        type: 'conversation',
-        content: message?.content,
-        role: "user",
-        userId: user.id
-      }
-    })
-    await db.message.create({
-      data: {
-        type: 'conversation',
-        role: 'system',
-        content: JSON.stringify(output.join('')),
-        userId: user.id
-      }
-    })
-
-
     if (!isPro) {
       await incrementApiLimit();
     }

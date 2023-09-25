@@ -1,3 +1,4 @@
+"use server"
 import { db } from "@/lib";
 import { MAX_FREE_COUNTS } from "@/constants";
 import { getServerSession } from "next-auth";

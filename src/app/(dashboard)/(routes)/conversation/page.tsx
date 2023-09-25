@@ -11,8 +11,6 @@ import { cn } from "@/lib";
 import { useProModal } from "@/hooks/use-pro-modal";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useQuery } from "@tanstack/react-query";
-import { getMessages } from "@/actions/getMessages";
 
 const formSchema = z.object({
   prompt: z.string().min(1, {
@@ -25,23 +23,11 @@ export interface MessageProps {
   content: string
 }
 
-const Conversation = ({ params }: { params: { userId: string } }) => {
+const Conversation = () => {
   const router = useRouter();
   const proModal = useProModal();
   const [messages, setMessages] = useState<MessageProps[]>([]);
 
-
-  useQuery({
-    queryFn: async (): Promise<MessageProps[] | null> => {
-      return await getMessages(params.userId)
-    },
-    queryKey: ['messages'],
-    onSuccess: (data: MessageProps[] | null) => {
-      if (data) {
-        setMessages(data)
-      }
-    }
-  })
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

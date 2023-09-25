@@ -11,11 +11,9 @@ import { User } from "@prisma/client";
 export const MobileSidebar = ({
   apiLimitCount = 0,
   isPro = false,
-  user = null
 }: {
   apiLimitCount: number;
   isPro: boolean;
-  user: User | null
 }) => {
   const [isMounted, setIsMounted] = useState(false);
 
@@ -35,7 +33,7 @@ export const MobileSidebar = ({
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="p-0">
-        <Sidebar user={user} isPro={isPro} apiLimitCount={apiLimitCount} />
+        <Sidebar isPro={isPro} apiLimitCount={apiLimitCount} />
       </SheetContent>
     </Sheet>
   );

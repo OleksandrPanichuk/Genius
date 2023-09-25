@@ -8,5 +8,5 @@ export default withAuth({
 })
 
 export const config = {
-  matcher: ['/dashboard/:path*', '/conversation', '/music', '/audio', '/image', '/code', '/video', '/settings']
+  matcher: ['/dashboard/:path*', '/conversation', '/music', '/audio', '/image', '/code', '/video', '/settings', "/spikify"]
 }
