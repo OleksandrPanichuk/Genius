@@ -6,12 +6,12 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id             String    @id @default(uuid()) @db.Uuid
+  id             String    @id @default(auto()) @db.ObjectId @map("_id")
   name           String?
   email          String    @unique
   emailVerified  DateTime?
@@ -25,18 +25,18 @@ model User {
 }
 
 model Account {
-  id String @id @default(uuid()) @db.Uuid
+    id             String    @id @default(auto()) @db.ObjectId @map("_id")
 
-  userId            String  @db.Uuid
+  userId            String  @db.ObjectId
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String? @db.String
+  access_token      String? @db.String
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String? @db.String
   session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -45,9 +45,9 @@ model Account {
 }
 
 model UserSubscription {
-  id String @id @default(uuid()) @db.Uuid
+  id             String    @id @default(auto()) @db.ObjectId @map("_id")
 
-  userId String @unique @db.Uuid
+  userId String @unique @db.ObjectId
 
   stripeCustomerId       String?   @unique @map(name: "stripe_customer_id")
   stripeSubscriptionId   String?   @unique @map(name: "stripe_subscription_id")
